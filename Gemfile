@@ -48,15 +48,16 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 #
 # Setting Related
-gem "settingslogic", "~> 2.0.9"
+gem "settingslogic"
 
 # Active Record Related
-gem "ransack", "~> 2.3"
-gem "activerecord-typedstore"
-gem "aasm", "~> 5.2"
-gem "kaminari", "~> 1.1", ">= 1.1.1"
+# gem "ransack"
+gem "aasm"
+gem "kaminari"
 gem "draper"
+gem "annotate", "~> 3.1"
 # gem 'bcrypt', '~> 3.1.7' # Use Active Model has_secure_password
+#
 
 
 group :development, :test do
@@ -66,6 +67,9 @@ group :development, :test do
   # test related
   gem "rspec-rails"
   gem "vcr"
+  gem "faker"
+  gem "factory_bot_rails", "~> 4.11"
+  gem "timecop"
 
   # code quality
   gem "rubocop"
@@ -87,3 +91,8 @@ group :development do
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 end
 
+group :test do
+  # Rspec
+  gem 'database_cleaner-active_record'
+  gem "shoulda-matchers", "~> 4.0.1"
+end
