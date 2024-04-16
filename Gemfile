@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 ruby "3.1.2"
@@ -55,7 +57,6 @@ gem "settingslogic"
 gem "aasm"
 gem "kaminari"
 gem "draper"
-gem "annotate", "~> 3.1"
 # gem 'bcrypt', '~> 3.1.7' # Use Active Model has_secure_password
 #
 
@@ -89,10 +90,11 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+  gem "annotate"
 end
 
 group :test do
   # Rspec
-  gem 'database_cleaner-active_record'
+  gem "database_cleaner-active_record"
   gem "shoulda-matchers", "~> 4.0.1"
 end
