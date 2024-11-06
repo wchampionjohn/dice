@@ -96,5 +96,5 @@ end
 group :test do
   # Rspec
   gem "database_cleaner-active_record"
-  gem "shoulda-matchers", "~> 4.0.1"
+  gem 'shoulda-matchers', '~> 5.0'
 end
