@@ -20,18 +20,24 @@ class Game < ApplicationRecord
   # includes ..................................................................
   # security (i.e. attr_accessible) ...........................................
   # relationships .............................................................
-  has_many :bet_item_games, class_name: "BetItemGame"
+  has_many :placed_items
   # validations ...............................................................
+  validates :dice1, :dice2, :dice3, presence: true
+  validates :dice1, :dice2, :dice3, inclusion: { in: 1..6 }
   # callbacks .................................................................
+  after_initialize :roll
   # scopes ....................................................................
   # additional config .........................................................
   # class methods .............................................................
   # public instance methods ...................................................
-  def roll
+  # i.e. place_items: [{code: 'bs01', amount: 100}, code: 'nb13', amount: 100}]
+  def result(placed_items)
+    roll
+
     {
-      dices: [1, 3, 5],
-      bs: "b",
-      number: 9,
+      dices: dices,
+      number: dices_number,
+      bs: dices_bs,
       own_items: [
         won_items: [
           {
@@ -68,6 +74,45 @@ class Game < ApplicationRecord
     }
   end
 
+  def triple?
+    dices.uniq.size == 1
+  end
+
+  def double?
+    dices.uniq.size == 2
+  end
+
+  def dices
+    [self.dice1, self.dice2, self.dice3]
+  end
+
+  def dices_number
+    dices.sum
+  end
+
+  def dices_bs
+    return "-" if triple?
+
+    dices_number >= 10 ? "b" : "s"
+  end
+
+  def generate_won_items
+    bet_items = BetItem.all
+    bet_items.select do |bet_item|
+      bet_item.win?(self.dices)
+    end
+  end
+
   # protected instance methods ................................................
   # private instance methods ..................................................
+  private
+  def roll
+    dots = [1, 2, 3, 4, 5, 6]
+    self.dice1 ||= dots.sample
+    self.dice2 ||= dots.sample
+    self.dice3 ||= dots.sample
+
+    true
+  end
+
 end

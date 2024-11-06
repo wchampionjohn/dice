@@ -10,20 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_15_093829) do
-  create_table "bet_item_games", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "bet_item_id"
-    t.integer "game_id"
-    t.integer "bet_amount", default: 0
-    t.integer "profit", default: 0
-    t.integer "status", limit: 1
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2024_11_06_014456) do
   create_table "bet_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "code"
-    t.decimal "odds", precision: 5, scale: 2
+    t.decimal "base_odds", precision: 5, scale: 2
+    t.boolean "multiple_dice_amount", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,6 +31,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_15_093829) do
     t.datetime "created_at"
   end
 
+  create_table "placed_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "bet_item_id", null: false
+    t.integer "bet_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bet_item_id"], name: "index_placed_items_on_bet_item_id"
+    t.index ["game_id"], name: "index_placed_items_on_game_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "balance", default: 0
@@ -47,4 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_15_093829) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "placed_items", "bet_items"
+  add_foreign_key "placed_items", "games"
 end
