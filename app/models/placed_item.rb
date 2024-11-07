@@ -36,12 +36,12 @@ class PlacedItem < ApplicationRecord
   delegate :win?, to: :bet_item
   # class methods .............................................................
   # public instance methods ...................................................
-  def reword(cup)
+  def reward(cup)
     win?(cup) ? bet_amount * bet_item.odds(cup) : 0
   end
 
   def profit(cup)
-    reword(cup) - bet_amount
+    reward(cup) - bet_amount
   end
 
   # protected instance methods ................................................

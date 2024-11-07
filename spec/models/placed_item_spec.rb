@@ -24,7 +24,7 @@
 require "rails_helper"
 
 RSpec.describe PlacedItem, type: :model do
-  describe "#reword" do
+  describe "#reward" do
     let(:bet_item) { BetItem.find_or_create_by(code: "bs01", base_odds: 2) }
     let(:placed_item) { create(:placed_item, bet_item: bet_item, bet_amount: 100) }
     let(:cup) { double("Cup") }
@@ -32,7 +32,7 @@ RSpec.describe PlacedItem, type: :model do
 
     before { allow(bet_item).to receive(:win?).and_return(won) }
 
-    subject { placed_item.reword(cup) }
+    subject { placed_item.reward(cup) }
 
     context "when base_odds is 2" do
       context "when bet 100 is won" do
@@ -81,13 +81,13 @@ RSpec.describe PlacedItem, type: :model do
 
     context "when bet 199" do
       let(:bet_amount) { 199 }
-      context "when reword is 398" do
-        before { allow(placed_item).to receive(:reword).and_return(398) }
+      context "when reward is 398" do
+        before { allow(placed_item).to receive(:reward).and_return(398) }
         it { is_expected.to eq(199) } # 398 - 199
       end
 
-      context "when reword is 0" do
-        before { allow(placed_item).to receive(:reword).and_return(0) }
+      context "when reward is 0" do
+        before { allow(placed_item).to receive(:reward).and_return(0) }
         it { is_expected.to eq(-199) } # 0 - 199
       end
     end

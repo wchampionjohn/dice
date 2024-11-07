@@ -19,7 +19,7 @@ module Api
         }
       end
 
-      game.reward = game.placed_items.sum { |item| item.reword(cup) }
+      game.reward = game.placed_items.sum { |item| item.reward(cup) }
       game.bet_amount = game.placed_items.sum(&:bet_amount)
       game.placed_items_attributes = placed_items
 
