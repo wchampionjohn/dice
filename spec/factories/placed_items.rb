@@ -4,7 +4,6 @@
 #
 #  id          :bigint           not null, primary key
 #  bet_amount  :integer
-#  status      :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  bet_item_id :bigint           not null
