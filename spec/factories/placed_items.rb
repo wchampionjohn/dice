@@ -21,6 +21,7 @@
 #
 FactoryBot.define do
   factory :placed_item do
+    association :game
 
   end
 end

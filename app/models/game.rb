@@ -10,11 +10,11 @@
 #  dice1      :integer
 #  dice2      :integer
 #  dice3      :integer
-#  number     :integer
 #  reward     :integer          default(0)
 #  created_at :datetime
 #  user_id    :integer
-e
+#
+
 class Game < ApplicationRecord
   # extends ...................................................................
   # includes ..................................................................
@@ -35,6 +35,25 @@ class Game < ApplicationRecord
   def dices
     [self.dice1, self.dice2, self.dice3]
   end
+
+  def number
+    self.dices.sum
+  end
+
+  def cup
+    return nil if self.dices.any?(&:nil?)
+
+    @cup ||= Cup.new(self.dice1, self.dice2, self.dice3)
+  end
+
+  def won_items
+    return [] if self.cup.blank?
+
+    placed_items
+      .select { |item| item.win?(cup) }
+      .map { |item| { bet_item_code: item.bet_item.code, reward: item.reward(cup) } }
+  end
+
   # protected instance methods ................................................
   # private instance methods ..................................................
 end

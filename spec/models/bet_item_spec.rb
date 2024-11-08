@@ -161,15 +161,15 @@ RSpec.describe BetItem, type: :model do
       let(:bet_item) { build(:bet_item, code: "sg01", base_odds: 2.0, multiple_dice_amount: true) }
       context "when contain three dices" do
         let(:cup) { build(:cup, :triple_one) }
-        it { expect(bet_item.odds(cup: cup)).to eq(4.0) }
+        it { expect(bet_item.odds(cup)).to eq(4.0) }
       end
       context "when contain double dices" do
         let(:cup) { build(:cup, :double_one) }
-        it { expect(bet_item.odds(cup: cup)).to eq(3.0) }
+        it { expect(bet_item.odds(cup)).to eq(3.0) }
       end
       context "when contain one dices" do
         let(:cup) { Cup.new(1, 2, 3) }
-        it { expect(bet_item.odds(cup: cup)).to eq(2.0) }
+        it { expect(bet_item.odds(cup)).to eq(2.0) }
       end
     end
 
