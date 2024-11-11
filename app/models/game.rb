@@ -5,69 +5,80 @@
 # Table name: games
 #
 #  id         :bigint           not null, primary key
-#  user_id    :integer
 #  bet_amount :integer          default(0)
-#  profit     :integer          default(0)
-#  number     :integer
-#  bs         :integer
 #  dice1      :integer
 #  dice2      :integer
 #  dice3      :integer
+#  reward     :integer          default(0)
 #  created_at :datetime
+#  user_id    :integer
 #
+
 class Game < ApplicationRecord
+  DEFAULT_VALUES = {
+    reward: 0,
+    bet_amount: 0
+  }
   # extends ...................................................................
   # includes ..................................................................
   # security (i.e. attr_accessible) ...........................................
   # relationships .............................................................
-  has_many :bet_item_games, class_name: "BetItemGame"
+  has_many :placed_items, dependent: :destroy
+  accepts_nested_attributes_for :placed_items
+  belongs_to :user
   # validations ...............................................................
+  validates :dice1, :dice2, :dice3, presence: true
+  validates :dice1, :dice2, :dice3, inclusion: { in: 1..6 }
   # callbacks .................................................................
   # scopes ....................................................................
   # additional config .........................................................
   # class methods .............................................................
   # public instance methods ...................................................
-  def roll
-    {
-      dices: [1, 3, 5],
-      bs: "b",
-      number: 9,
-      own_items: [
-        won_items: [
-          {
-            code: "bs02",
-          },
-          {
-            code: "nb14",
-          },
-          {
-            code: "td35",
-          },
-          {
-            code: "td36",
-          },
-          {
-            code: "td56",
-          },
-          {
-            code: "sg03",
-          },
-          {
-            code: "sg05",
-          },
-          {
-            code: "sg06",
-          },
-          {
-            code: "od01",
-          },
-        ]
-      ],
-      bet_amount: 100,
-      profit: 100,
-    }
+  def dices
+    [self.dice1, self.dice2, self.dice3]
   end
 
+  def number
+    self.dices.sum
+  end
+
+  def cup=(cup)
+    self.dice1 = cup.dices[0]
+    self.dice2 = cup.dices[1]
+    self.dice3 = cup.dices[2]
+  end
+
+  def cup
+    return nil if self.dices.any?(&:nil?)
+
+    @cup ||= Cup.new(self.dice1, self.dice2, self.dice3)
+  end
+
+
+  def won_items
+    return [] if self.cup.blank?
+
+    placed_items
+      .select { |item| item.win?(cup) }
+      .map { |item| { bet_item_code: item.bet_item.code, reward: item.reward(cup) } }
+  end
+
+  def calculate_profit
+    self.reward = placed_items.sum { |item| item.reward(cup) }
+    self.bet_amount = placed_items.sum(&:bet_amount)
+  end
+
+  # 損益，贏的話是正數，輸的話是負數
+  def profit
+    self.reward - self.bet_amount
+  end
+
+  def trade!
+    ActiveRecord::Base.transaction do
+      save!
+      user.update_new_balance(profit)
+    end
+  end
   # protected instance methods ................................................
   # private instance methods ..................................................
 end

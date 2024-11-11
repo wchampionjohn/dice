@@ -83,6 +83,7 @@ RSpec.configure do |config|
     clear_enqueued_jobs
     clear_performed_jobs
   end
+  config.include ApiTestHelper, :request
 end
 
 Shoulda::Matchers.configure do |config|
@@ -90,4 +91,8 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+RSpec.configure do |c|
+  c.include ApiTestHelper
 end
