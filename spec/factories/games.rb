@@ -4,7 +4,6 @@
 #
 #  id         :bigint           not null, primary key
 #  bet_amount :integer          default(0)
-#  bs         :integer
 #  dice1      :integer
 #  dice2      :integer
 #  dice3      :integer

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: bet_items
@@ -11,6 +13,5 @@
 #
 FactoryBot.define do
   factory :bet_item do
-    
   end
 end

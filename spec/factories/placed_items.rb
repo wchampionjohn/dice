@@ -22,6 +22,7 @@
 FactoryBot.define do
   factory :placed_item do
     association :game
+    bet_amount { 100 }
 
   end
 end

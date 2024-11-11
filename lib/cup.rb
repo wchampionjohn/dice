@@ -48,7 +48,6 @@ class Cup
     number.between?(4, 10)
   end
 
-
   def self.roll
     new(rand(1..6), rand(1..6), rand(1..6))
   end

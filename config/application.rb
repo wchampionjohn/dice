@@ -30,6 +30,7 @@ module DiceBackend
 
     config.autoload_paths += [
       Rails.root.join("lib"),
+      Rails.root.join("services"),
     ]
 
     # Configuration for the application, engines, and railties goes here.
