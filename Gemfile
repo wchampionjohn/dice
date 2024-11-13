@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 #
 # Setting Related
 gem "settingslogic"
+gem "dotenv-rails", require: "dotenv/rails-now"
 
 # Active Record Related
 # gem "ransack"

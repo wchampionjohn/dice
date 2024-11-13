@@ -33,7 +33,7 @@ function MessageBox({
       onRequestClose={onConfirm}
       contentLabel='Modal'
       shouldReturnFocusAfterClose={false}
-      parentSelector={() => document.querySelector('#root')}
+      parentSelector={() => document.querySelector('#app-mount')}
     >
       <div className='base-modal-container'>
         <div className='content-text'>{message}</div>

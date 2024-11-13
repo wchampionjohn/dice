@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux'
-import store from './store'
+import configureStore from './reducer/index'
 import App from './App';
 
 
@@ -15,16 +15,15 @@ class DiceApp {
 
   initReduxState() {
     try {
-      const preloadedState = JSON.parse(this.mountPoint.dataset.state || '{}')
-      if (process.env.NODE_ENV === 'development') {
-        console.log('<<<< InitState >>>>', preloadedState)
-      }
-      return store;
+      const preloadedState = JSON.parse(this.mountPoint.dataset.state || '{}');
+      console.log('<<<< InitState >>>>', preloadedState);
+      return configureStore(preloadedState);
     } catch (error) {
-      return {}
+      console.error('Error initializing Redux state:', error);
+      return configureStore();
     } finally {
-      console.log('<<<< RemoveAttribute >>>>', this.mountPoint)
-      this.mountPoint.removeAttribute('data-state')
+      console.log('<<<< RemoveAttribute >>>>', this.mountPoint);
+      this.mountPoint.removeAttribute('data-state');
     }
   }
 
@@ -32,18 +31,10 @@ class DiceApp {
     const {info} = this.store.getState()
     if (typeof info === 'object') {
       axios.defaults.baseURL = info.api_url || null
-      axios.defaults.headers.common['X-USer-Identity'] = info.userid
       axios.defaults.headers.common['X-User-Token'] = info.password
       axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name=csrf-token]').content
       axios.defaults.withCredentials = true
       axios.defaults.timeout = 10000
-      // axios.interceptors.request.use(requestLogger)
-      // axios.interceptors.request.use(requestSetLoading)
-      //
-      // axios.interceptors.response.use(responseRedirect)
-      // axios.interceptors.response.use(responseLogger)
-      // axios.interceptors.response.use(responseToastify)
-      // axios.interceptors.response.use(responseSetLoading, responseSetLoading)
     } else {
       console.warn('Axios init failure!')
     }
