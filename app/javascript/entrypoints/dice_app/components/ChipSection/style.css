@@ -1,0 +1,53 @@
+.chip-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0 0 0; }
+  .chip-section .chip-group {
+    display: flex; }
+  .chip-section .btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .chip-section .btn-group .btn {
+      text-align: center;
+      width: 120px;
+      height: 60px;
+      border-radius: 10px;
+      font-size: 16px;
+      margin: 5px;
+      border: 0;
+      font-weight: 400; }
+      .chip-section .btn-group .btn.clear {
+        background: #fff; }
+      .chip-section .btn-group .btn.repeat {
+        background: #2980b9; }
+      .chip-section .btn-group .btn.submit {
+        background: #4CAF50; }
+      .chip-section .btn-group .btn.disabled {
+        background: #888;
+        color: #aaa; }
+      .chip-section .btn-group .btn.disabled:hover {
+        cursor: not-allowed; }
+      .chip-section .btn-group .btn.clear:hover:not(.disabled) {
+        background: #666; }
+    .chip-section .btn-group .btn:hover:not(.disabled) {
+      cursor: pointer;
+      color: #fff; }
+  .chip-section .chip-group .remaining-balance {
+    text-align: center;
+    border: #c1b371 2px solid;
+    margin: auto 0 auto 20px;
+    border-radius: 2px; }
+  .chip-section .chip-group h3 {
+    padding: 2px;
+    font-weight: 600;
+    font-size: 14px;
+    background: linear-gradient(0deg, #c1b371, #ebf8e1, #c1b371); }
+  .chip-section .chip-group p {
+    padding: 2px;
+    font-weight: 200;
+    font-size: 14px;
+    color: #fff;
+    background: black; }
+
+/*# sourceMappingURL=style.css.map */

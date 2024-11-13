@@ -1,0 +1,84 @@
+.dice-box {
+  border-radius: 12%;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #000;
+  position: relative; }
+  .dice-box.xl {
+    --box-height: 42px;
+    --box-width: 42px;
+    width: var(--box-width);
+    height: var(--box-height); }
+  .dice-box.lg {
+    --box-height: 34px;
+    --box-width: 34px;
+    width: var(--box-width);
+    height: var(--box-height); }
+  .dice-box.md {
+    --box-height: 20px;
+    --box-width: 20px;
+    width: var(--box-width);
+    height: var(--box-height); }
+  .dice-box.sm {
+    --box-height: 16px;
+    --box-width: 16px;
+    width: var(--box-width);
+    height: var(--box-height); }
+
+.dice-face {
+  border-radius: 50%;
+  position: absolute; }
+  .dice-face.one {
+    background: #f00;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 40%;
+    height: 40%; }
+  .dice-face.two {
+    background: #000;
+    top: 8%;
+    left: 8%;
+    width: 24%;
+    height: 24%;
+    box-shadow: calc(.6 * var(--box-width)) calc(.6 * var(--box-height)) 0 0 #000; }
+  .dice-face.three {
+    background: #000;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 24%;
+    height: 24%;
+    box-shadow: calc(.3 * var(--box-width)) calc(-.3 * var(--box-height)) 0 0 #000, calc(-.3 * var(--box-width)) calc(.3 * var(--box-height)) 0 0 #000; }
+  .dice-face.four {
+    background: #f00;
+    top: 8%;
+    left: 8%;
+    width: 24%;
+    height: 24%;
+    box-shadow: 0 calc(.6 * var(--box-height)) 0 0 #f00, calc(.6 * var(--box-width)) calc(.6 * var(--box-height)) 0 0 #f00, calc(.6 * var(--box-width)) 0 0 0 #f00; }
+  .dice-face.five {
+    background: #000;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 24%;
+    height: 24%;
+    box-shadow: calc(-.3 * var(--box-width)) calc(-.3 * var(--box-height)) 0 0 #000, calc(-.3 * var(--box-width)) calc(.3 * var(--box-height)) 0 0 #000, calc(.3 * var(--box-width)) calc(-.3 * var(--box-height)) 0 0 #000, calc(.3 * var(--box-width)) calc(.3 * var(--box-height)) 0 0 #000; }
+  .dice-face.six {
+    background: #000;
+    top: 8%;
+    left: 8%;
+    width: 24%;
+    height: 24%;
+    box-shadow: 0 calc(.6 * var(--box-height)) 0 0 #000, calc(.6 * var(--box-width)) calc(.6 * var(--box-height)) 0 0 #000, 0 calc(.3 * var(--box-height)) 0 0 #000, calc(.6 * var(--box-height)) calc(.3 * var(--box-height)) 0 0 #000, calc(.6 * var(--box-width)) 0 0 0 #000; }
+
+/*# sourceMappingURL=style.css.map */

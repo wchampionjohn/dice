@@ -1,0 +1,43 @@
+.ReactModalPortal .history-overlay .ReactModal__Content {
+  background: #fff; }
+  .ReactModalPortal .history-overlay .ReactModal__Content.error {
+    color: #F86E79; }
+.ReactModalPortal .history-overlay .history-container {
+  min-width: 10rem;
+  max-width: 15rem; }
+  .ReactModalPortal .history-overlay .history-container .history-header {
+    padding: .5rem;
+    border-bottom: 1px solid #E5E5E5;
+    position: relative; }
+    .ReactModalPortal .history-overlay .history-container .history-header .history-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #303030; }
+    .ReactModalPortal .history-overlay .history-container .history-header .history-close {
+      position: absolute;
+      right: 0;
+      top: .5rem;
+      cursor: pointer; }
+  .ReactModalPortal .history-overlay .history-container .history-content {
+    padding: 0 2rem; }
+    .ReactModalPortal .history-overlay .history-container .history-content .game-result-item {
+      margin-top: 10px; }
+    .ReactModalPortal .history-overlay .history-container .history-content .record {
+      background: #0d790a;
+      padding: 2px 5px;
+      border-radius: 3px; }
+  .ReactModalPortal .history-overlay .history-container .confirm-box-icon {
+    text-align: center; }
+    .ReactModalPortal .history-overlay .history-container .confirm-box-icon svg {
+      width: 3.5rem;
+      height: 3.5rem;
+      fill: #FF5D70;
+      padding-bottom: .75rem; }
+  .ReactModalPortal .history-overlay .history-container .history-description {
+    font-size: .875rem;
+    line-height: 1rem;
+    color: #303030; }
+  .ReactModalPortal .history-overlay .history-container .actions {
+    padding: 3px 0; }
+
+/*# sourceMappingURL=style.css.map */

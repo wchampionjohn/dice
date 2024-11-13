@@ -98,3 +98,6 @@ group :test do
   gem "database_cleaner-active_record"
   gem 'shoulda-matchers', '~> 5.0'
 end
+
+
+gem "vite_rails", "~> 3.0"

@@ -1,0 +1,54 @@
+.record {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &.sm {
+    font-size: 13px;
+  }
+
+  &.md {
+    font-size: 15px;
+  }
+
+  &.lg {
+    width: 250px;
+    font-size: 27px;
+  }
+
+  .big {
+    color: #fe0113;
+  }
+
+  .small {
+    color: #fefc48;
+  }
+
+  .triple {
+    color: #fefc48;
+    background: #fe0113;
+    padding: 1px;
+    border-radius: 2px;
+  }
+
+
+  .dice-group {
+    width: 60%;
+    display: flex;
+  }
+
+  .number {
+    padding: 0 10px;
+    text-align: right;
+    align-self: flex-end;
+  }
+
+  .big-small {
+    padding-left: 10px;
+  }
+
+  .dice-box + .dice-box {
+    margin-left: 3px;
+  }
+
+}

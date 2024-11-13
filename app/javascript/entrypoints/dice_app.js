@@ -1,4 +1,5 @@
-import DiceApp from './dice_app/index';
+import './dice_app/styles/index.scss'
+import DiceApp from './dice_app/index.jsx';
 
 window.addEventListener('load', () => {
   const mountPoint = document.getElementById('app-mount');
