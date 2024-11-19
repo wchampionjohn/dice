@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 #
 # Setting Related
 gem "settingslogic"
+gem "dotenv-rails", require: "dotenv/rails-now"
 
 # Active Record Related
 # gem "ransack"
@@ -98,3 +99,6 @@ group :test do
   gem "database_cleaner-active_record"
   gem 'shoulda-matchers', '~> 5.0'
 end
+
+
+gem "vite_rails", "~> 3.0"

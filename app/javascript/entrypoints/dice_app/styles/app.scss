@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background-color: #f7f7f7;
+  position: relative;
+  overflow: hidden;
+
+  .app-container {
+    position: relative;
+    background: #0d790a;
+    border-radius: 20px;
+    padding: 6px;
+    width: 1280px;
+    margin: 20px auto;
+
+    .wrap {
+      display: flex;
+      width: 100%;
+    }
+
+    .wrap .item {
+      margin: 5px;
+      border-radius: 6px;
+      text-align: center;
+      flex-grow: 1;
+      padding: 2px;
+      border: #fff solid 2px;
+      color: #fff;
+      background: #095307;
+    }
+
+  }
+}

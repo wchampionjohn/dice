@@ -1,0 +1,80 @@
+// https://fkhadra.github.io/react-toastify/how-to-style
+
+@import 'react-toastify/dist/ReactToastify.css';
+
+/** Used to define container behavior: width, position: fixed etc... **/
+.Toastify__toast-container {
+  position: absolute;
+  top: 3.75rem;
+
+  /** Used to define the position of the ToastContainer **/
+  &.Toastify__toast-container--top-right {
+    top: 3.75rem + .5rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 1rem;
+  }
+}
+
+/** Classes for the displayed toast **/
+.Toastify__toast {
+  border-radius: 4px;
+  padding-left: 1rem;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+
+  &.Toastify__toast-body {
+  }
+
+  &.Toastify__toast--default {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+  }
+
+  &.Toastify__toast--success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+
+  &.Toastify__toast--info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+
+  &.Toastify__toast--warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+
+  &.Toastify__toast--error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+
+  &.Toastify__toast--dark {
+    background-color: rgba(0%, 0%, 0%, .8);
+  }
+}
+
+/** Classes for the close button. Better use your own closeButton **/
+.Toastify__close-button {
+  color: inherit;
+}
+
+// .Toastify__close-button--default {}
+// .Toastify__close-button>svg {}
+// .Toastify__close-button:hover,
+// .Toastify__close-button:focus {}
+
+/** Classes for the progress bar **/
+// .Toastify__progress-bar {}
+// .Toastify__progress-bar--animated {}
+// .Toastify__progress-bar--controlled {}
+// .Toastify__progress-bar--rtl {}
+// .Toastify__progress-bar--default {}
+// .Toastify__progress-bar--dark {}

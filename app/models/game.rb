@@ -23,7 +23,7 @@ class Game < ApplicationRecord
   # includes ..................................................................
   # security (i.e. attr_accessible) ...........................................
   # relationships .............................................................
-  has_many :placed_items, dependent: :destroy
+  has_many :placed_items, class_name: "PlacedItem", dependent: :destroy
   accepts_nested_attributes_for :placed_items
   belongs_to :user
   # validations ...............................................................
@@ -54,13 +54,12 @@ class Game < ApplicationRecord
     @cup ||= Cup.new(self.dice1, self.dice2, self.dice3)
   end
 
-
   def won_items
     return [] if self.cup.blank?
 
-    placed_items
-      .select { |item| item.win?(cup) }
-      .map { |item| { bet_item_code: item.bet_item.code, reward: item.reward(cup) } }
+    BetItem.all
+           .select { |item| item.win?(cup) }
+           .map { |item| { code: item.code, reward: placed_items.find_by(bet_item: item).try(:reward, cup) } }
   end
 
   def calculate_profit
@@ -79,6 +78,17 @@ class Game < ApplicationRecord
       user.update_new_balance(profit)
     end
   end
+
+  def bs
+    if @cup.big?
+      "b"
+    elsif @cup.small?
+      "s"
+    else
+      "-"
+    end
+  end
+
   # protected instance methods ................................................
   # private instance methods ..................................................
 end

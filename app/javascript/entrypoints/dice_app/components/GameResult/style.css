@@ -1,0 +1,19 @@
+.game-result-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; }
+  .game-result-content.lg {
+    font-size: 20px; }
+    .game-result-content.lg p {
+      margin: 10px 20px 0; }
+  .game-result-content .game-result-item {
+    margin-top: 10px; }
+  .game-result-content .record {
+    background: #0d790a;
+    padding: 2px 5px;
+    border-radius: 3px; }
+
+/*# sourceMappingURL=style.css.map */

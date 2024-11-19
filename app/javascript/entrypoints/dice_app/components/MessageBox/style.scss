@@ -1,0 +1,24 @@
+.ReactModalPortal .message-box-overlay {
+  .ReactModal__Content {
+    background: #fff;
+
+    &.error {
+      color: #F86E79;
+    }
+  }
+
+  .base-modal-container {
+    width: 18rem;
+    height: 12.5rem;
+
+    svg {
+      width: 4.5rem;
+      height: 4.5rem;
+      fill: currentColor;
+    }
+  }
+
+  .content-text {
+    padding: .75rem 1rem 0;
+  }
+}

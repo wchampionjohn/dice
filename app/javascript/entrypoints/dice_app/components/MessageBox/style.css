@@ -1,0 +1,15 @@
+.ReactModalPortal .message-box-overlay .ReactModal__Content {
+  background: #fff; }
+  .ReactModalPortal .message-box-overlay .ReactModal__Content.error {
+    color: #F86E79; }
+.ReactModalPortal .message-box-overlay .base-modal-container {
+  width: 18rem;
+  height: 12.5rem; }
+  .ReactModalPortal .message-box-overlay .base-modal-container svg {
+    width: 4.5rem;
+    height: 4.5rem;
+    fill: currentColor; }
+.ReactModalPortal .message-box-overlay .content-text {
+  padding: .75rem 1rem 0; }
+
+/*# sourceMappingURL=style.css.map */

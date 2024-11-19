@@ -1,0 +1,33 @@
+.record {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .record.sm {
+    font-size: 13px; }
+  .record.md {
+    font-size: 15px; }
+  .record.lg {
+    width: 250px;
+    font-size: 27px; }
+  .record .big {
+    color: #fe0113; }
+  .record .small {
+    color: #fefc48; }
+  .record .triple {
+    color: #fefc48;
+    background: #fe0113;
+    padding: 1px;
+    border-radius: 2px; }
+  .record .dice-group {
+    width: 60%;
+    display: flex; }
+  .record .number {
+    padding: 0 10px;
+    text-align: right;
+    align-self: flex-end; }
+  .record .big-small {
+    padding-left: 10px; }
+  .record .dice-box + .dice-box {
+    margin-left: 3px; }
+
+/*# sourceMappingURL=style.css.map */

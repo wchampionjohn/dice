@@ -1,0 +1,70 @@
+/*
+Error: File to import not found or unreadable: ~bootstrap/scss/functions.
+        on line 8 of _bootstrap.scss
+        from line 4 of index.scss
+
+3: // vendor (node_modules)
+4: @import "./bootstrap.scss";
+5: @import './react-toastify.scss';
+6: @import './react-modal.scss';
+7: 
+8: // basic theme setting
+9: @import './fonts.scss';
+10: @import "./app.scss";
+
+Backtrace:
+_bootstrap.scss:8
+index.scss:4
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:310:in `visit_import'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `block (2 levels) in visit_import'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `map'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:325:in `block in visit_import'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:88:in `block in with_import'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:88:in `with_import'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+/Users/solmate/.rvm/gems/ruby-3.1.2/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+/Users/solmate/.rvm/gems/ruby-3.1.2/bin/sass:25:in `load'
+/Users/solmate/.rvm/gems/ruby-3.1.2/bin/sass:25:in `<main>'
+/Users/solmate/.rvm/gems/ruby-3.1.2/bin/ruby_executable_hooks:22:in `eval'
+/Users/solmate/.rvm/gems/ruby-3.1.2/bin/ruby_executable_hooks:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: ~bootstrap/scss/functions.\A         on line 8 of _bootstrap.scss\A         from line 4 of index.scss\A \A 3: // vendor (node_modules)\A 4: @import \"./bootstrap.scss\";\A 5: @import './react-toastify.scss';\A 6: @import './react-modal.scss';\A 7: \A 8: // basic theme setting\A 9: @import './fonts.scss';\A 10: @import \"./app.scss\";"; }

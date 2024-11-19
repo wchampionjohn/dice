@@ -52,12 +52,12 @@
   { code: "td45", base_odds: 6.0 },
   { code: "td46", base_odds: 6.0 },
   { code: "td56", base_odds: 6.0 },
-  { code: "sg01", base_odds: 2.0 },
-  { code: "sg02", base_odds: 2.0 },
-  { code: "sg03", base_odds: 2.0 },
-  { code: "sg04", base_odds: 2.0 },
-  { code: "sg05", base_odds: 2.0 },
-  { code: "sg06", base_odds: 2.0 },
+  { code: "sg01", base_odds: 2.0, multiple_dice_amount: true},
+  { code: "sg02", base_odds: 2.0, multiple_dice_amount: true},
+  { code: "sg03", base_odds: 2.0, multiple_dice_amount: true},
+  { code: "sg04", base_odds: 2.0, multiple_dice_amount: true},
+  { code: "sg05", base_odds: 2.0, multiple_dice_amount: true},
+  { code: "sg06", base_odds: 2.0, multiple_dice_amount: true},
 ].each do |bet_item|
   item = BetItem.find_or_initialize_by(code: bet_item[:code])
   item.update!(base_odds: bet_item[:base_odds])

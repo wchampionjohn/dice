@@ -68,7 +68,7 @@ describe "POST #create" do
       }.to_not change(Game, :count)
 
       expect(response).to have_http_status(:internal_server_error)
-      expect(json_response["errors"]).to include("error")
+      expect(json_response["errors"]).to include("建立失敗")
     end
   end
 end

@@ -1,0 +1,68 @@
+.ReactModalPortal .history-overlay {
+  .ReactModal__Content {
+    background: #fff;
+
+    &.error {
+      color: #F86E79;
+    }
+  }
+
+  .history-container {
+    min-width: 10rem;
+    max-width: 15rem;
+
+    .history-header {
+      padding: .5rem;
+      border-bottom: 1px solid #E5E5E5;
+      position: relative;
+
+      .history-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #303030;
+      }
+
+      .history-close {
+        position: absolute;
+        right: 0;
+        top: .5rem;
+        cursor: pointer;
+      }
+    }
+
+    .history-content {
+      padding: 0 2rem;
+
+      .game-result-item {
+        margin-top: 10px;
+      }
+
+      .record {
+        background: #0d790a;
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+    }
+
+    .confirm-box-icon {
+      text-align: center;
+
+      svg {
+        width: 3.5rem;
+        height: 3.5rem;
+        fill: #FF5D70;
+        padding-bottom: .75rem;
+      }
+    }
+
+    .history-description {
+      font-size: .875rem;
+      line-height: 1rem;
+      color: #303030;
+    }
+
+    .actions {
+      padding: 3px 0;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+body {
+  letter-spacing: 1.12px;
+}
+
+h1, h2, h3 {
+  letter-spacing: 1.44px;
+}
+
+.font-family-noto-sans {
+  font-family: "Noto Sans";
+}
+
+.font-family-noto-sans-tc {
+  font-family: "Noto Sans TC";
+}
+
+.font-header-1 {
+  font-weight: bold;
+  font-size: .875rem; // 14px
+}
+
+.font-header-2 {
+  font-weight: bold;
+  font-size: 1.125rem; // 18px
+}
+
+.font-header-3 {
+  font-weight: bold;
+  font-size: 1.375rem; // 22px
+}
+
+.font-header-4 {
+  font-weight: bold;
+  font-size: 1.625rem; // 26px
+  letter-spacing: 2.08px;
+  line-height: 1.875rem;
+}
+
+.font-header-5 {
+  font-weight: bold;
+  font-size: 2.1875rem; // 35px
+  line-height: 1.343;
+  letter-spacing: 2.8px;
+}
+
+.font-span-0 {
+  font-size: .75rem; // 12px
+  line-height: 1.41;
+  letter-spacing: .96px;
+}
+
+.font-span-1 {
+  font-size: .875rem; // 14px
+  letter-spacing: 1.12px;
+}
+
+.font-span-3 {
+  font-size: 1.125rem; // 18px
+  letter-spacing: 1.44px;
+  line-height: 1.3333;
+}
+
+// Font Label
+.font-label {
+  display: inline-block;
+  padding: .125rem .375rem;
+  font-size: .75rem; // 12px
+  border-radius: 6px;
+}

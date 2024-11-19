@@ -1,0 +1,215 @@
+.top-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 5px;
+
+
+  .points {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    position: relative;
+  }
+
+  .points .point-item {
+    text-align: center;
+    border: #c1b371 2px solid;
+    border-radius: 6px;
+  }
+
+  .points .point-item + .point-item {
+    margin-top: 10px;
+  }
+
+  .points .point-item h3 {
+    font-weight: 600;
+    font-size: 14px;
+    background: linear-gradient(0deg, #c1b371, #ebf8e1, #c1b371);
+  }
+
+  .points .point-item p {
+    font-weight: 200;
+    font-size: 14px;
+    color: #fff;
+    background: rgb(0, 0, 0);
+  }
+
+  .dice-cup-container {
+    width: 300px;
+    border-radius: 6px;
+    text-align: center;
+    padding: 10px;
+
+    .dice-cup {
+      width: 120px;
+      height: 120px;
+      margin: 20px auto 0;
+      background: linear-gradient(41deg, #000, #000, #111, #222, #000, #000);
+      border-radius: 50px 50px 10px 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+      position: relative;
+      z-index: 2;
+    }
+
+    .dice-result {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: #000;
+      justify-content: center;
+      position: relative;
+
+      box-shadow: 0 0 10px rgba(0, 0, 0, 1.1);
+
+      .dice-box {
+        position: absolute;
+      }
+
+    }
+  }
+
+  .dice-cup::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 30px;
+    border-radius: 50px 50px 0 0;
+    top: -17px;
+    left: 46px;
+    background-color: #000;
+    /*background: linear-gradient(190deg, #000, #000, #000, #333);*/
+  }
+
+  .dice-cup::after {
+    content: '';
+    position: absolute;
+    width: 150px; /* 下面幅度的宽度 */
+    height: 20px; /* 下面幅度的高度 */
+    background-color: #000; /* 幅度的背景颜色 */
+    border-radius: 6px;
+    bottom: -2px; /* 控制幅度在下方的位置 */
+    left: -15px;
+    /*left: 50%; !* 控制幅度水平居中 *!*/
+  }
+
+  .points {
+    .result {
+      position: absolute;
+      top: 43%;
+      right: -180px;
+      display: flex;
+
+      p {
+        width: 70px;
+        height: 70px;
+        padding: 0 2px;
+        font-size: 60px;
+        font-weight: 900;
+
+      }
+
+      .point {
+        border: #c1b371 2px solid;
+        border-radius: 6px;
+        text-align: center;
+        margin-right: 10px;
+
+        p {
+          background: linear-gradient(180deg, #ffff74, #9b8939);
+          background-clip: text;
+          color: transparent;
+          line-height: 1.2;
+        }
+      }
+
+      .bs {
+        border: #c1b371 2px solid;
+        border-radius: 6px;
+        text-align: center;
+
+        p {
+          color: transparent;
+          line-height: 1.2;
+
+          &.big {
+            background: #fe0113;
+            background-clip: text;
+          }
+
+          &.small {
+            background: #fefc48;
+            background-clip: text;
+          }
+
+          &.triple {
+            background: #fe0112;
+            color: #fefc48;
+          }
+
+        }
+      }
+    }
+
+  }
+
+  .records {
+    width: 200px;
+    margin: 2px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .record {
+      padding: 1px 15px;
+    }
+
+    .record-group {
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .title {
+      background: linear-gradient(0deg, #c1b371, #ebf8e1, #c1b371);
+      font-weight: 600;
+      font-size: 16px;
+      width: 100%;
+      text-align: center;
+      border-radius: 6px;
+    }
+
+
+    .date-selector {
+      background: linear-gradient(0deg, #c1b371, #ebf8e1, #c1b371);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .date-selector {
+    .date-selector-btn {
+      width: 30px;
+      background: transparent;
+      border: 0;
+      font-weight: 900;
+      cursor: pointer;
+
+      &.more {
+        width: 34px;
+        font-size: 14px;
+        padding: 2px;
+      }
+
+      &.previous {
+        transform: rotate(-90deg);
+      }
+
+      &.next {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
