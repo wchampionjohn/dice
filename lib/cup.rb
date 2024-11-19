@@ -41,10 +41,12 @@ class Cup
   end
 
   def big?
+    return false if triple?
     number > 10
   end
 
   def small?
+    return false if triple?
     number.between?(4, 10)
   end
 

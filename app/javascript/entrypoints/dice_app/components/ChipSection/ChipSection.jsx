@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import PropTypes from 'prop-types'
 import {useDispatch, useSelector} from 'react-redux'
 import {bettingActions} from '../../store/betting-slice'
 import {userActions} from '../../store/user-slice'
@@ -12,24 +11,23 @@ import {isGameRolled} from '../../store/game-slice'
 import MessageBox from '../MessageBox'
 import GameResult from '../GameResult'
 
-function ChipSection(props) {
+function ChipSection() {
   const dispatch = useDispatch()
-  const {minBetAmount} = useSelector((state) => state.game)
-  const {selectedChip, selectedItem, betAmount} = useSelector((state) => state.betting)
+  const {minBetAmount, gameRe} = useSelector((state) => state.game)
+  const createGame = useCreateGame()
+  const {selectedChip, selectedItem, betAmount, betChipToItem} = useSelector((state) => state.betting)
   const isBetDisabled = useSelector(isGameRolled)
   const balance = useSelector((state) => state.user.balance)
   const [chips, setChips] = useState(CHIP_VALUES.reduce((accumulator, value) => {
     accumulator[value] = 0
     return accumulator
   }, {}))
-  const createGame = useCreateGame()
+
+  const [isSettled, setIsSettled] = useState(false)
 
   useEffect(() => {
-    const calculatedBalance = balance - betAmount
-
-    const newChips = toChips(calculatedBalance)
+    const newChips = toChips(balance - betAmount)
     setChips(newChips)
-    dispatch(userActions.newBalance(calculatedBalance))
   }, [betAmount])
 
   const onBet = (value) => {
@@ -49,12 +47,13 @@ function ChipSection(props) {
     dispatch(bettingActions.bet(payload))
   }
 
+
   const handleClickChip = (value) => {
     if (isBetDisabled) return
 
-    if (!chips[value] || chips[value] <= 0) {
+    if (remainingBalance() < value) {
       showNotification({
-        type: 'warning', message: '籌碼不足或為選擇籌碼，請選擇其他籌碼',
+        type: 'warning', message: '籌碼不足，請選擇其他籌碼',
       })
       return
     }
@@ -71,7 +70,7 @@ function ChipSection(props) {
   }
 
   useEffect(() => {
-    if (!chips[selectedChip] || chips[selectedChip] <= 0) {
+    if (selectedChip > remainingBalance()) {
       dispatch(bettingActions.selectChip(''))
     }
   }, [chips])
@@ -101,22 +100,32 @@ function ChipSection(props) {
       return
     }
 
-    const gameResult = await createGame()
+    const placedItems = Object.keys(betChipToItem).map((code) => {
+      return {
+        bet_amount: betChipToItem[code], bet_item_code: code
+      }
+    })
+
     await dispatch(bettingActions.selectItem(''))
     await dispatch(bettingActions.selectChip(''))
+    const result = await createGame(placedItems)
 
     await MessageBox({
       message: (<GameResult
         size='lg'
-        {...gameResult}
+        {...result.game}
       />),
     })
-    await dispatch(userActions.newBalance(balance + gameResult.profit))
+
+    await dispatch(userActions.newBalance(result.balance))
+    setIsSettled(true)
+    setChips(toChips(result.balance))
   }
 
-  const onNewGame = () => {
-    dispatch(bettingActions.clearAllBet())
-    dispatch(newGame())
+  const onNewGame = async () => {
+    setIsSettled(false)
+    await dispatch(bettingActions.resetBetAmount())
+    await dispatch(newGame())
     onClearAllBet()
   }
 
@@ -126,7 +135,19 @@ function ChipSection(props) {
       amount: chips[value],
       handleChipSelect: () => handleClickChip(value),
       selected: selectedChip === value,
+      remainingBalance: remainingBalance(),
     }
+  }
+
+  const remainingBalance = () => {
+    return balance - betAmount
+  }
+
+  const showingBalance = () => {
+    if (isSettled) {
+      return balance
+    }
+    return remainingBalance()
   }
 
   return (<div className='chip-section'>
@@ -138,7 +159,7 @@ function ChipSection(props) {
       <Chip {...getChipAttributes(500)} />
       <div className='remaining-balance'>
         <h3>剩餘籌碼</h3>
-        <p>{balance}</p>
+        <p>{showingBalance()}</p>
       </div>
     </div>
     <BtnGroup

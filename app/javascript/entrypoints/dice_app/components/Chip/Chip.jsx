@@ -8,13 +8,13 @@ import { COLOR_MAPPING } from '../../lib/utils/numberHelper'
 
 function Chip(props) {
   const isBetDisabled = useSelector(isGameRolled)
-  const { selected, value, amount, handleChipSelect } = props
+  const { selected, value, amount, handleChipSelect, remainingBalance } = props
 
   return (
     <div
       className={clsx('chip', COLOR_MAPPING[value], {
         selected,
-        disabled: amount === 0 || isBetDisabled,
+        disabled: (remainingBalance < value) || isBetDisabled,
       })}
       onClick={handleChipSelect}
     >
@@ -29,12 +29,14 @@ Chip.propTypes = {
   amount: PropTypes.number,
   handleChipSelect: PropTypes.func,
   selected: PropTypes.bool,
+  remainingBalance: PropTypes.number,
 }
 
 Chip.defaultProps = {
   amount: 0,
   handleChipSelect: () => {},
   selected: false,
+  remainingBalance: 0,
 }
 
 export default Chip

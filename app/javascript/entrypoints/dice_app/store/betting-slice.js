@@ -34,6 +34,9 @@ const bettingSlice = createSlice({
       state.betAmount = 0
       state.betChipToItem = {}
     },
+    resetBetAmount(state) {
+      state.betAmount = 0
+    }
   },
 })
 

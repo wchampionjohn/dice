@@ -6,7 +6,7 @@ const initGameResult = {
   number: 0,
   betAmount: 0,
   profit: 0,
-  won_items: [],
+  wonItems: [],
 }
 
 const gameSlice = createSlice({
@@ -19,9 +19,16 @@ const gameSlice = createSlice({
     minBetAmount: 0,
   },
   reducers: {
-    roll(state, action) {
+    create(state, action) {
       state.gameState = 'rolled'
-      state.gameResult = action.payload
+      state.gameResult = {
+        dices: action.payload.game.dices,
+        bs: action.payload.game.bs,
+        number: action.payload.game.number,
+        betAmount: action.payload.game.bet_amount,
+        profit: action.payload.game.profit,
+        wonItems: action.payload.won_items,
+      }
     },
     nextRound(state) {
       state.gameState = 'betting'
@@ -42,6 +49,6 @@ const gameSlice = createSlice({
 export const gameActions = gameSlice.actions
 export const isGameRolled = (state) => state.game.gameState === 'rolled'
 export const isItemWon = (state, code) => {
-  return state.game.gameResult.won_items.map((item) => item.code).includes(code)
+  return state.game.gameResult.wonItems.map((item) => item.code).includes(code)
 }
 export default gameSlice

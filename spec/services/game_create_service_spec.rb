@@ -62,12 +62,12 @@ RSpec.describe GameCreateService, type: :service do
         expect(service.game.bet_amount).to eq(150)
       end
 
-      it "game's reward reward = 100" do
+      it "game's reward = 100" do
         expect(subject).to be_truthy
         expect(service.game.reward).to eq(100)
       end
 
-      it "game's reward profit = -50" do
+      it "game's profit = -50" do
         expect(subject).to be_truthy
         expect(service.game.profit).to eq(-50)
       end

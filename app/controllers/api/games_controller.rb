@@ -5,7 +5,7 @@ module Api
     around_action :handle_crucial_exceptions, only: :create
 
     def create
-      service = GameCreateService.new(current_user, placed_items_params: game_params[:place_items])
+      service = GameCreateService.new(current_user, placed_items_params: game_params[:placed_items])
       if service.perform
         @game = service.game
         render :show
@@ -15,7 +15,7 @@ module Api
     end
 
     def game_params
-      params.permit(place_items: [:bet_amount, :bet_item_code])
+      params.permit(placed_items: [:bet_amount, :bet_item_code])
     end
 
     def current_user
