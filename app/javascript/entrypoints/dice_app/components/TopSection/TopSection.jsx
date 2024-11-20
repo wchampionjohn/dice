@@ -1,19 +1,17 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import {useSelector} from 'react-redux'
 import History from './History'
-import { isGameRolled } from '../../store/game-slice'
-import { bsToClassName, bsToText } from '../../lib/utils/gameHelper'
+import {isGameRolled} from '../../store/game-slice'
+import {bsToClassName, bsToText} from '../../lib/utils/gameHelper'
 import DiceResult from './DiceResult'
 
 function TopSection() {
-  const { records, nonTripleRounds, gameResult, minBetAmount } = useSelector(
-    (state) => state.game
-  )
-  const { betAmount } = useSelector((state) => state.betting)
+  const {nonTripleRounds, gameResult, minBetAmount} = useSelector((state) => state.game)
+  const {records} = useSelector((state) => state.history)
+  const {betAmount} = useSelector((state) => state.betting)
   const isShowResult = useSelector(isGameRolled)
 
-  return (
-    <div className='top-section'>
+  return (<div className='top-section'>
       <div className='item points'>
         <div className='point-item'>
           <h3>最小押注</h3>
@@ -27,8 +25,7 @@ function TopSection() {
           <h3>未開豹子局數</h3>
           <p>{nonTripleRounds}</p>
         </div>
-        {isShowResult && (
-          <div className='result'>
+        {isShowResult && (<div className='result'>
             <div className='point'>
               <p>{gameResult.number}</p>
             </div>
@@ -37,20 +34,13 @@ function TopSection() {
                 {bsToText(gameResult.bs)}
               </p>
             </div>
-          </div>
-        )}
+          </div>)}
       </div>
       <div className='item dice-cup-container'>
-        {isShowResult ? (
-          <DiceResult dices={gameResult.dices} />
-        ) : (
-          <div className='dice-cup' />
-        )}
+        {isShowResult ? (<DiceResult dices={gameResult.dices}/>) : (<div className='dice-cup'/>)}
       </div>
-
-      <History records={records} />
-    </div>
-  )
+      <History records={records}/>
+    </div>)
 }
 
 TopSection.propTypes = {}

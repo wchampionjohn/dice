@@ -66,9 +66,21 @@ RSpec.describe Game, type: :model do
     let!(:placed_item3) { create(:placed_item, game: game, bet_item: tp01, bet_amount: 100) }
 
     describe "#won_items" do
-      it { expect(game.won_items.size).to eq(2) }
-      it { expect(game.won_items.map { |item| item[:bet_item_code] }).to match_array(%w[bs01 sg01]) }
-      it { expect(game.won_items.map { |item| item[:reward] }).to match_array([placed_item1.reward(game.cup), placed_item2.reward(game.cup)]) }
+      it "return 8  won items" do
+        expect(game.won_items.size).to eq(8)
+      end
+      it "return 2 won items with reward" do
+        expect(game.won_items.count { |item| item[:reward].to_i > 0 }).to eq(2)
+      end
+      it "return every win item code" do
+        expect(game.won_items.map { |item| item[:code] }).to match_array(%w[bs01 nb06 sg01 sg02 sg03 td12 td13 td23])
+      end
+      it "placed_item include win item 1's correct reward" do
+        expect(game.won_items.map { |item| item[:reward] }.compact!).to include(placed_item1.reward(game.cup))
+      end
+      it "placed_item include win item 2's correct reward" do
+        expect(game.won_items.map { |item| item[:reward] }.compact!).to include(placed_item2.reward(game.cup))
+      end
     end
 
     describe "#calculate_profit" do

@@ -16,7 +16,9 @@ class HomepageController < ApplicationController
         name: current_user.name,
         balance: current_user.balance,
       },
-      records: [],
+      history: {
+        records: Game.records,
+      }
     }.to_json
   end
 

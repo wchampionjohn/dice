@@ -2,15 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Record from '../Record'
 import historyModal from '../HistoryModal'
-import { apiGetHistoryRecords } from '../../api-request/history_records'
+import { apiGetGames } from '../../api-request/games'
 
 function History(props) {
   const { records } = props
 
   const handleClickMore = async () => {
-    const { payload } = await apiGetHistoryRecords()
+    const { payload } = await apiGetGames()
+    console.log(payload)
     await historyModal({
-      records: payload.records,
+      records: payload.games,
     })
   }
 

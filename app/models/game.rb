@@ -33,6 +33,18 @@ class Game < ApplicationRecord
   # scopes ....................................................................
   # additional config .........................................................
   # class methods .............................................................
+  def self.records
+    games = Game.order(created_at: :desc).limit(5)
+    games.map do |game|
+      {
+        id: game.id,
+        dices: game.dices,
+        number: game.number,
+        bs: game.bs
+      }
+    end
+  end
+
   # public instance methods ...................................................
   def dices
     [self.dice1, self.dice2, self.dice3]
@@ -80,9 +92,9 @@ class Game < ApplicationRecord
   end
 
   def bs
-    if @cup.big?
+    if cup.big?
       "b"
-    elsif @cup.small?
+    elsif cup.small?
       "s"
     else
       "-"

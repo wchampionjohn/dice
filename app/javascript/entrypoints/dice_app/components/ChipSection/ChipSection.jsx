@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {bettingActions} from '../../store/betting-slice'
 import {userActions} from '../../store/user-slice'
+import {historyActions} from '../../store/history-slice'
 import Chip from '../Chip'
 import BtnGroup from './BtnGroup'
 import {CHIP_VALUES, toChips} from '../../lib/utils/numberHelper'
@@ -13,7 +14,7 @@ import GameResult from '../GameResult'
 
 function ChipSection() {
   const dispatch = useDispatch()
-  const {minBetAmount, gameRe} = useSelector((state) => state.game)
+  const {minBetAmount, gameResult} = useSelector((state) => state.game)
   const createGame = useCreateGame()
   const {selectedChip, selectedItem, betAmount, betChipToItem} = useSelector((state) => state.betting)
   const isBetDisabled = useSelector(isGameRolled)
@@ -125,6 +126,9 @@ function ChipSection() {
   const onNewGame = async () => {
     setIsSettled(false)
     await dispatch(bettingActions.resetBetAmount())
+    await dispatch(historyActions.addRecord({
+      bs: gameResult.bs, number: gameResult.number, dices: gameResult.dices,
+    }))
     await dispatch(newGame())
     onClearAllBet()
   }

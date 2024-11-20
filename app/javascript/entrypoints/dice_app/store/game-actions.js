@@ -1,8 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux'
 import {apiCreateGame} from '../api-request/games'
 import {gameActions, isItemWon} from './game-slice'
-import {userActions} from './user-slice'
-import { bettingActions } from './betting-slice'
 
 export const useCreateGame = () => {
   const dispatch = useDispatch()
@@ -16,7 +14,7 @@ export const useCreateGame = () => {
         dices: payload.game.dices,
         bs: payload.game.bs,
         number: payload.game.number,
-        betAmount: payload.game.bet_amount,
+        bet_amount: payload.game.bet_amount,
         profit: payload.game.profit,
       }
     }

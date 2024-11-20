@@ -5,7 +5,7 @@ import Record from '../Record'
 
 function GameResult(props) {
   const {
- time, dices, number, bs, betAmount, profit, size, 
+ time, dices, number, bs, bet_amount, profit, size,
 } = props
 
   return (
@@ -17,7 +17,7 @@ function GameResult(props) {
           dices={dices}
           size={size}
         />
-        <p>押注：{betAmount}</p>
+        <p>押注：{bet_amount}</p>
         <p>獲利：{profit}</p>
         {time && <p className='time'>{time}</p>}
       </div>
@@ -31,7 +31,7 @@ GameResult.propTypes = {
   bs: PropTypes.string.isRequired,
   number: PropTypes.number.isRequired,
   dices: PropTypes.array.isRequired,
-  betAmount: PropTypes.number.isRequired,
+  bet_amount: PropTypes.number.isRequired,
   size: PropTypes.string,
 }
 

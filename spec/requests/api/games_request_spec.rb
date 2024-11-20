@@ -9,7 +9,7 @@ describe "POST #create" do
 
   let(:valid_params_with_placed_items) do
     {
-      place_items: [
+      placed_items: [
         { bet_amount: 50, bet_item_code: "bs01" },
         { bet_amount: 50, bet_item_code: "tp00" }
       ]
@@ -37,15 +37,15 @@ describe "POST #create" do
         json_response
       end
 
-      it { expect(subject.dig("payload", "game", "placed_items").size).to eq(2) }
-      it { expect(subject.dig("payload", "game", "placed_items").map { |item| item["bet_amount"] }).to eq([50, 50]) }
-      it { expect(subject.dig("payload", "game", "placed_items").map { |item| item["bet_item_code"] }).to eq(%w[bs01 tp00]) }
-      it { expect(subject.dig("payload", "game").keys).to match_array(%w[bet_amount dice1 dice2 dice3 id number placed_items reward user won_items]) }
+      it { expect(subject.dig("payload", "placed_items").size).to eq(2) }
+      it { expect(subject.dig("payload", "placed_items").map { |item| item["bet_amount"] }).to eq([50, 50]) }
+      it { expect(subject.dig("payload", "placed_items").map { |item| item["bet_item_code"] }).to eq(%w[bs01 tp00]) }
+      it { expect(subject.dig("payload", "game").keys).to match_array(%w[bet_amount bs dice1 dice2 dice3 dices id number profit reward]) }
 
     end
 
     context "when place_items is empty" do
-      let(:params) { { place_items: [] } }
+      let(:params) { { placed_items: [] } }
       subject { post "/api/games", params: params }
 
       it { expect { subject }.to change { Game.count }.by(1) }
@@ -56,7 +56,7 @@ describe "POST #create" do
   context "when bet_item_code is invalid" do
     let(:invalid_params) do
       {
-        place_items: [
+        placed_items: [
           { bet_amount: 50, bet_item_code: "invalid_code" }
         ]
       }
