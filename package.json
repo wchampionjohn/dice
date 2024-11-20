@@ -9,7 +9,6 @@
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "esbuild": "^0.24.0",
     "lodash": "^4.17.21",
     "nodemon": "^3.1.0",
     "postcss": "^8.4.38",
@@ -49,5 +48,9 @@
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "build:css": "sass app/assets/stylesheets/application.scss app/assets/builds/application.css --no-source-map --style=compressed"
   }
 }

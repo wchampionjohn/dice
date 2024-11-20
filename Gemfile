@@ -41,7 +41,7 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -64,7 +64,7 @@ gem "draper"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
+  gem "debug"
 
   # test related
   gem "rspec-rails"
@@ -92,12 +92,21 @@ group :development do
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
   gem "annotate"
+
+  gem "capistrano", "~> 3.16.0", require: false
+  gem "capistrano-rails", "~> 1.4", require: false
+  gem "capistrano-rvm", "~> 0.1.2", require: false
+  gem "capistrano-bundler", "~> 1.6", require: false
+  gem "capistrano3-puma", "~> 5.2.0", require: false
+  gem "capistrano-rails-console", require: false
+  gem "capistrano-upload-config", require: false
+  gem 'sshkit', '~> 1.21.0'
 end
 
 group :test do
   # Rspec
   gem "database_cleaner-active_record"
-  gem 'shoulda-matchers', '~> 5.0'
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 
