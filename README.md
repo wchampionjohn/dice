@@ -1,23 +1,42 @@
-# Project Name
-dice-game
+# 專案名稱
+骰寶遊戲 (Dice Game)
 
-## Introduction
-This project is a Sic Bo (骰寶) game application built using Ruby on Rails and React. Sic Bo is a traditional dice game where players bet on the outcome of three dice rolls. The game provides a simple and interactive user interface, powered by modern web technologies, allowing users to place bets and experience the excitement of this classic game.
+> 這是一個 Side Project
 
-## Running the Project
-Install backend dependencies: `bundle install`  
-Set up the database: `rails db:create` `rails db:migrate`  
-Install frontend dependencies: `yarn install`  
-Start the backend server: `rails server`  
-Start the frontend development server: `yarn start`
+## 專案簡介
+線上骰寶遊戲系統，採用 Ruby on Rails 作為後端 API 框架，搭配 React + Redux 建構前端介面，實作完整的遊戲流程與下注機制。
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to access the application.
+此為個人 Side Project，旨在展現 Ruby on Rails 開發風格與程式碼撰寫能力，同時練習前端版面設計與切版技術。
 
-## Deployment
-Configure server information: Set the server information in `config/deploy/production.rb`.  
-Deploy to the server: `cap production deploy`
+## 遊戲功能
+- 擲骰子遊戲
+- 下注系統
+- 即時結算
+- 遊戲紀錄查詢
 
-## Languages and Libraries Versions
+## 專案架構
+- **後端**: Ruby on Rails API
+- **前端**: React + Redux 狀態管理
+- **資料庫**: MySQL
+- **建置工具**: Vite
+
+## 螢幕截圖
+（待補充）
+
+## 執行專案
+安裝後端相依套件：`bundle install`
+建立資料庫：`rails db:create` `rails db:migrate`
+安裝前端相依套件：`yarn install`
+啟動後端伺服器：`rails server`
+啟動前端開發伺服器：`yarn start`
+
+在瀏覽器中開啟 [http://localhost:3000](http://localhost:3000) 即可存取應用程式。
+
+## 部署
+設定伺服器資訊：在 `config/deploy/production.rb` 中設定伺服器資訊。
+部署到伺服器：`cap production deploy`
+
+## 使用的語言與函式庫版本
 - **Ruby**: 3.0.2
 - **Rails**: 6.1.4
 - **Node.js**: 14.17.6
@@ -29,15 +48,8 @@ Deploy to the server: `cap production deploy`
 - **Capistrano**: 3.16.0
 - **Puma**: 5.3.2
 
-## Tech Stack
+## 技術棧
 Ruby on Rails, React, Redux, Yarn, Bundler, Capistrano
 
-## Contribution Guidelines
-1. Fork this project.
-2. Create a new branch: `git checkout -b feature-branch`
-3. Commit your changes: `git commit -am 'Add new feature'`
-4. Push to the branch: `git push origin feature-branch`
-5. Create a Pull Request.
-
-## Contact Information
-For any questions, please contact the project owner: [wchampionjohn@gmail.com](mailto:wchampionjohn@gmail.com)
+## 聯絡資訊
+如有任何問題，請聯絡專案擁有者：[wchampionjohn@gmail.com](mailto:wchampionjohn@gmail.com)
