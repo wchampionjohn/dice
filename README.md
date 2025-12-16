@@ -21,7 +21,9 @@
 - **建置工具**: Vite
 
 ## 螢幕截圖
-（待補充）
+<img width="1305" height="736" alt="game1" src="https://github.com/user-attachments/assets/c60c81db-cb09-4167-b035-76b44522c19d" />
+<img width="1300" height="734" alt="game2" src="https://github.com/user-attachments/assets/d45053ef-8dd6-4000-83a1-530ab9352f1f" />
+
 
 ## 執行專案
 安裝後端相依套件：`bundle install`
